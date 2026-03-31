@@ -1,0 +1,66 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+@config 'tailwind.config.js';
+
+.fi-body {
+    @apply !bg-white font-semibold text-black;
+}
+.fi-simple-layout { 
+    @apply bg-primary-500;
+}
+.fi-simple-main {
+    @apply bg-primary-500/50 shadow-none ring-0;
+
+    .fi-fo-field-wrp {
+        .fi-fo-field-wrp-label {
+            span {
+                @apply text-base;
+            }
+        }
+    }
+
+    .fi-link {
+        .fi-link-icon {
+            @apply !text-black;
+        }
+        span{
+            @apply !text-black hover:underline;
+        }
+       
+    }
+}
+
+.fi-btn {
+    @apply rounded-none py-2 px-2;
+
+    &.fi-btn-color-primary {
+        @apply bg-black  hover:bg-gray-800;
+    }
+}
+.fi-topbar {
+    nav{
+        @apply bg-primary-500;
+
+        ul {
+            @apply mx-auto;
+
+            li.fi-topbar-item {
+                a {
+                    .fi-topbar-item-icon {
+                        @apply text-black;
+                    }
+                    .fi-topbar-item-label {
+                        @apply font-bold text-base text-black;
+                    }
+                }
+            }
+        }
+
+        .fi-icon-btn {
+            .fi-icon-btn-icon {
+                @apply text-black;
+            }
+        }
+    }
+}
+
