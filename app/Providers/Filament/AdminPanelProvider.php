@@ -31,6 +31,7 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login(Login::class)
             ->profile()
+            ->passwordReset()
             ->colors([
                 'primary' => '#fed526',
             ])
@@ -71,7 +72,7 @@ class AdminPanelProvider extends PanelProvider
                 'panels::footer',
                 fn (): View => view('filament/common/footer'),
             )
-            ->databaseNotifications()
+            ->databaseNotifications()->databaseNotificationsPolling('10s')
             ->authMiddleware([
                 Authenticate::class,
             ]);

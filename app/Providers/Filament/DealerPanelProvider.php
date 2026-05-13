@@ -75,7 +75,7 @@ class DealerPanelProvider extends PanelProvider
                 ProfileCompleted::class,
             ])
             ->maxContentWidth('screen-lg')
-            ->databaseNotifications()
+            ->databaseNotifications()->databaseNotificationsPolling('10s')
             ->login(Login::class)
             ->registration(Register::class)
             ->renderHook(
