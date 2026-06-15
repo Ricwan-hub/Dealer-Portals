@@ -18,6 +18,7 @@ use Filament\Infolists\Components\Group;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Support\Enums\FontWeight;
+use Illuminate\Support\Facades\Hash;
 use Filament\Infolists\Infolist;
 
 
@@ -44,6 +45,16 @@ class UserResource extends Resource
                     ->required()
                     ->email()
                     ->unique(ignoreRecord: true)
+                    ->columnSpan('full'),
+                Forms\Components\TextInput::make('password')
+                    ->password()
+                    ->revealable()
+                    ->label('New Password')
+                    ->helperText('Leave blank to keep current password')
+                    ->dehydrated(fn ($state) => filled($state))
+                    ->dehydrateStateUsing(fn ($state): string => Hash::make($state))
+                    ->nullable()
+                    ->hiddenOn('create')
                     ->columnSpan('full'),
                 Forms\Components\Select::make('roles')
                      ->relationship('roles', 'name', function ($query) {
