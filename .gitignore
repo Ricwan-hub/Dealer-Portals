@@ -17,3 +17,13 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/framework/testing/
+/storage/logs/
+/public/js/filament/
+/public/css/filament/
+/public/css/font.css
+/public/fonts/
+/public/vendor/livewire/
